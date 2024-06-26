@@ -6,4 +6,4 @@ def navbar():
 
     # Menambahkan konten di dalam kolom pertama
     with col1:
-        st.page_link("Homepage.py", label="Home")
+        st.page_link("app.py", label="Home")
