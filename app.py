@@ -23,35 +23,22 @@ tabs = st.tabs(["Stacking Predict"])
 with tabs[0]:
     st.header('Prediksi Menggunakan Metode Stacking')
 
-    # Inisialisasi list di session state jika belum ada
-    if 'knn_data' not in st.session_state:
-        st.session_state.knn_data = [0.0] * len(fitur)
-    if 'knn_current_index' not in st.session_state:
-        st.session_state.knn_current_index = 0
+    # Mengambil input dari pengguna
+    feature1 = st.number_input('Masukkan Voltage: ')
+    feature2 = st.number_input('Masukkan High: ')
+    feature3 = st.number_input('Masukkan Soil Type: ')
 
-    # Menggunakan form untuk mengelola input secara berkala
-    if st.session_state.knn_current_index < len(fitur):
-        with st.form(key='knn_input_form'):
-            feature = fitur[st.session_state.knn_current_index]
-            angka = st.number_input(f'Masukkan {feature}: ', key=f'knn_{feature}', value=st.session_state.knn_data[st.session_state.knn_current_index])
-            submit_button = st.form_submit_button(label='Tambah ke Data')
+    # Menyimpan fitur input dalam list
+    final_feature = [feature1, feature2, feature3]
 
-            if submit_button:
-                st.session_state.knn_data[st.session_state.knn_current_index] = angka
-                st.session_state.knn_current_index += 1
-                st.experimental_rerun()
-
-    # Menampilkan list yang telah diisi
-    st.write('Data:', st.session_state.knn_data)
-
-    # Memastikan semua fitur telah diinput
-    if st.session_state.knn_current_index == len(fitur):
+    # Tombol untuk memulai prediksi
+    if st.button('Predict'):
         # Membaca model dari file pickle
         with open('model-pickle.pkl', 'rb') as file:
             model = pickle.load(file)
 
         # Melakukan prediksi
-        input_data = np.array(st.session_state.knn_data).reshape(1, -1)
+        input_data = np.array(final_feature).reshape(1, -1)
         prediction = model.predict(input_data)[0]
 
         # Menampilkan hasil prediksi
