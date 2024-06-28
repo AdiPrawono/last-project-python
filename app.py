@@ -102,13 +102,12 @@ with tabs[0]:
 
         # Menampilkan hasil prediksi dan akurasi
         if y_new_pred[0] == 1:
-            print(f"Prediction for new data: {y_new_pred[0]} (Tidak Ada Land Mines)")
+            st.write(f"Prediction for new data: {y_new_pred[0]} (Tidak Ada Land Mines)")
         elif y_new_pred[0] == 2:
-            print(f"Prediction for new data: {y_new_pred[0]} (Anti tank)")
+            st.write(f"Prediction for new data: {y_new_pred[0]} (Anti tank)")
         elif y_new_pred[0] == 3:
-            print(f"Prediction for new data: {y_new_pred[0]} (Anti Presonnel)")
+            st.write(f"Prediction for new data: {y_new_pred[0]} (Anti Presonnel)")
         elif y_new_pred[0] == 4:
-            print(f"Prediction for new data: {y_new_pred[0]} (Bobby Trapped Anti Presonnel)")
+            st.write(f"Prediction for new data: {y_new_pred[0]} (Bobby Trapped Anti Presonnel)")
         elif y_new_pred[0] == 5:
-            print(f"Prediction for new data: {y_new_pred[0]} (M14 Anti-personnel)")
-        print(f'Accuracy: {accuracy * 100:.2f}%')
+            st.write(f"Prediction for new data: {y_new_pred[0]} (M14 Anti-personnel)")
