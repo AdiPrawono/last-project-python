@@ -101,10 +101,14 @@ with tabs[0]:
         accuracy = accuracy_score(y_test, y_test_pred)
 
         # Menampilkan hasil prediksi dan akurasi
-        st.write(f'Prediksi untuk data baru : {y_pred_new[0]}')
-        st.write(f'Nilai Akurasi pada data uji: {accuracy:.6f}')
-        st.write(f'Akurasi : {accuracy * 100:.2f}%')
-
-        # Menampilkan laporan klasifikasi
-        st.write('Laporan Klasifikasi:')
-        st.text(classification_report(y_test, y_test_pred))
+        if y_new_pred == 1:
+            print(f"Prediction for new data: {y_new_pred[0]} (Tidak Ada Land Mines)")
+        elif y_new_pred == 2:
+            print(f"Prediction for new data: {y_new_pred[0]} (Anti tank)")
+        elif y_new_pred == 3:
+            print(f"Prediction for new data: {y_new_pred[0]} (Anti Presonnel)")
+        elif y_new_pred == 4:
+            print(f"Prediction for new data: {y_new_pred[0]} (Bobby Trapped Anti Presonnel)")
+        elif y_new_pred == 5:
+            print(f"Prediction for new data: {y_new_pred[0]} (M14 Anti-personnel)")
+        print(f'Accuracy: {accuracy * 100:.2f}%')
