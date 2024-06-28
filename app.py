@@ -95,7 +95,7 @@ with tabs[0]:
         
         # Prediksi untuk data baru
         X_new = scaler.transform([st.session_state.knn_data])
-        y_pred_new = stack_clf.predict(X_new)
+        y_new_pred = stack_clf.predict(X_new)
 
         # Evaluasi akurasi
         accuracy = accuracy_score(y_test, y_test_pred)
