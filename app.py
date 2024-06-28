@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.preprocessing import StandardScaler
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
-# from imblearn.over_sampling import SMOTE
+import pickle
 
 st.set_page_config(page_title="Pendat", layout="wide")
 navbar()
